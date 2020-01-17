@@ -38,9 +38,9 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
                                   #colorLiteral(red: 0.5176470588, green: 1, blue: 1, alpha: 1), #colorLiteral(red: 0, green: 0.8980392157, blue: 1, alpha: 1), #colorLiteral(red: 0, green: 0.7215686275, blue: 0.831372549, alpha: 1),
                                   #colorLiteral(red: 0.7411764706, green: 0.7411764706, blue: 0.7411764706, alpha: 1), #colorLiteral(red: 0.3803921569, green: 0.3803921569, blue: 0.3803921569, alpha: 1), #colorLiteral(red: 0.1294117647, green: 0.1294117647, blue: 0.1294117647, alpha: 1)] {
         didSet {
-            if colors.isEmpty {
-                fatalError("ERROR ColorPickerView - You must set at least 1 color!")
-            }
+            collectionView.reloadData()
+            collectionView.layoutIfNeeded()
+            collectionView.setContentOffset(.zero, animated: false)
         }
     }
     /// The object that acts as the layout delegate for the color picker
